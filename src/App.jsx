@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import pptxgen from "pptxgenjs";
 import { toPng } from "html-to-image";
@@ -316,8 +316,21 @@ export default function App() {
 
   return (
     <main className="app">
+      <header className="topNav">
+        <div className="brandMark" aria-label="Excel PowerPoint Tool">
+          XPZ
+        </div>
+        <nav aria-label="Primary navigation">
+          <a href="#upload">Import</a>
+          <a href="#charts">Curves</a>
+          <a href="#requirements">FAQs</a>
+          <a href="#charts">Dashboard</a>
+          <a href="#export">Export</a>
+        </nav>
+      </header>
+
       <section className="hero">
-        <div>
+        <div className="heroCopy">
           <p className="eyebrow">Excel → PowerPoint Tool</p>
           <h1>Projekt-Dashboard Generator</h1>
           <p className="subtitle">
@@ -326,17 +339,32 @@ export default function App() {
           </p>
         </div>
 
-        <div className="uploadBox">
+        <div className="uploadBox" id="upload">
           <input type="file" accept=".xlsx,.xls" onChange={handleFileUpload} />
-          <button onClick={exportPowerPoint} disabled={rows.length === 0}>
+          <button id="export" onClick={exportPowerPoint} disabled={rows.length === 0}>
             PowerPoint exportieren
           </button>
+        </div>
+
+        <div className="shapeStage" aria-hidden="true">
+          <span className="slash slashOne"></span>
+          <span className="slash slashTwo"></span>
+          <span className="slash slashThree"></span>
+          <span className="dot blueDot"></span>
+          <span className="semiCircle"></span>
+          <span className="pillar"></span>
+          <span className="pillarBase"></span>
+          <span className="pillarHole"></span>
+          <span className="triangle"></span>
+          <span className="cyanPost"></span>
+          <span className="arch"></span>
+          <span className="sun"></span>
         </div>
       </section>
 
       {error && <div className="errorBox">{error}</div>}
 
-      <section className="infoGrid">
+      <section className="infoGrid" id="requirements">
         <div>
           <strong>Benötigte Spalten:</strong> Prozess, Terminart, Datum, Status
         </div>
@@ -348,7 +376,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="charts">
+      <section className="charts" id="charts">
         <ChartCard
           title="Briefing Hochlaufkurve"
           data={briefingData}
