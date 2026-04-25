@@ -1,0 +1,316 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, Aptos, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", Segoe UI, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #02040a;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(210, 224, 255, 0.18), transparent 34rem),
+    linear-gradient(180deg, #060912 0%, #02040a 42%, #090b12 100%);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(125, 211, 252, 0.22) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    32px 28px;
+  background-size:
+    92px 92px,
+    146px 146px;
+  opacity: 0.28;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 52px 24px 64px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  width: fit-content;
+  margin: 0 0 14px;
+  padding: 7px 10px;
+  color: #b9c4d8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(42px, 7vw, 82px);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.96;
+}
+
+.subtitle {
+  max-width: 660px;
+  margin: 18px 0 0;
+  color: #aeb7c8;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.uploadBox {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  background: rgba(15, 20, 32, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px) saturate(145%);
+}
+
+input[type="file"] {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px;
+  color: #dbe6f7;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  color: #06101d;
+  font-weight: 750;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+button {
+  min-height: 48px;
+  padding: 13px 16px;
+  color: #06101d;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(180deg, #ffffff 0%, #dce7f6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(148, 163, 184, 0.22);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 44px rgba(148, 163, 184, 0.3);
+}
+
+button:focus-visible,
+input[type="file"]:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  color: rgba(248, 250, 252, 0.46);
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.errorBox {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.38);
+  border: 1px solid rgba(248, 113, 113, 0.34);
+  border-radius: 8px;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.infoGrid div {
+  min-height: 74px;
+  padding: 16px;
+  color: #aeb7c8;
+  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.infoGrid strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.chartCard {
+  padding: 26px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(7, 11, 20, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  box-shadow:
+    0 26px 76px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.chartHeader {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.chartHeader h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 740;
+  letter-spacing: 0;
+}
+
+.chartHeader p {
+  margin: 9px 0 0;
+  color: #98a4b8;
+}
+
+.summaryBox {
+  width: 250px;
+  padding: 0 0 0 18px;
+  color: #d9e2f2;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.summaryBox h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.summaryBox p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 7px 0;
+  color: #d9e2f2;
+  font-size: 13px;
+}
+
+.summaryBox strong {
+  color: #8793a7;
+  font-weight: 650;
+}
+
+.chartArea {
+  height: 360px;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 330px;
+  color: #8996aa;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.03);
+  background-size: 34px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+}
+
+.recharts-default-legend {
+  color: #d9e2f2;
+}
+
+.recharts-legend-item-text {
+  color: #d9e2f2 !important;
+}
+
+@media (max-width: 900px) {
+  .app {
+    padding: 34px 16px 48px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartHeader {
+    flex-direction: column;
+  }
+
+  .summaryBox {
+    width: 100%;
+    padding: 14px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-left: 0;
+  }
+}
